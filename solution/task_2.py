@@ -12,6 +12,6 @@ def play(words: list[str]) -> list[int]:
     
     return errors
 
-words = input("Введите слова через пробел: ").lower().split()
+words = input().lower().split()
 result = play(words)
-print(f"Номера слов с ошибками: {result}")
+print(f"{result}")
