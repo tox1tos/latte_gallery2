@@ -31,9 +31,3 @@ def generate(state: dict, length: int = 10) -> str:
 
     return " ".join(result)
 
-data = input("Введите текст для обучения (несколько предложений через точку или каждое с новой строки):\n")
-dataset = [sentence.strip().lower() for sentence in data.replace("\n", ".").split(".") if sentence.strip()]
-state = learn(dataset)
-length = int(input("Введите желаемую длину генерируемого текста (в словах): "))
-generated_text = generate(state, length=length)
-print("Сгенерированный текст:", generated_text)

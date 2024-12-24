@@ -1,17 +1,12 @@
 def play(words: list[str]) -> list[int]:
-    errors = []  
-    used_words = set()  
-    
-    for i in range(len(words)):
-        word = words[i]
-        if word in used_words or (i > 0 and words[i - 1][-1] != word[0]):
-            errors.append(i + 1)
-            
+    i = 0
+    j = i+1
+    errors = []
+    while j < len(words):
+        if words[i][-1] != words[j][0] or words[:j+1].count(words[j])>1:
+            errors.append(j+1)
+            j+=1
         else:
-            used_words.add(word)
-    
+            i=j
+            j+=1
     return errors
-
-words = input().lower().split()
-result = play(words)
-print(f"{result}")
